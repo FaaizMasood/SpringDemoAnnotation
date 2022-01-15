@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 // we changed it to make use of default bean ID
 @Component
-//@Scope("prototype") 
+//@Scope("prototype")  // this makes a new instance each time we call it in the main app.java
 public class TennisCoach implements Coach {
 	
 	// for DI, now we use Autowired so no stter method needed as this is field DI
@@ -43,8 +43,10 @@ public class TennisCoach implements Coach {
 	}
 	*/
 	
+	// we can also do method injection as we just need to add @autowired to that method 
+	
 	// define the init method 
-	@PostConstruct
+	@PostConstruct 
 	public void doMyStartupStuff() {
 		System.out.println("inisde my doMystartupStuff");
 	}
